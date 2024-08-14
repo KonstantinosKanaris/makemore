@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>makemore package &mdash; makemore  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            makemore
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">makemore package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-makemore.dataset">makemore.dataset module</a><ul>
+<li><a class="reference internal" href="#makemore.dataset.CharDataset"><code class="docutils literal notranslate"><span class="pre">CharDataset</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.dataset.CharDataset.contains"><code class="docutils literal notranslate"><span class="pre">CharDataset.contains()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.dataset.CharDataset.get_output_length"><code class="docutils literal notranslate"><span class="pre">CharDataset.get_output_length()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore.vectorizer">makemore.vectorizer module</a><ul>
+<li><a class="reference internal" href="#makemore.vectorizer.CharTokenizer"><code class="docutils literal notranslate"><span class="pre">CharTokenizer</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.vectorizer.CharTokenizer.decode"><code class="docutils literal notranslate"><span class="pre">CharTokenizer.decode()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.vectorizer.CharTokenizer.encode"><code class="docutils literal notranslate"><span class="pre">CharTokenizer.encode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore.vocabulary">makemore.vocabulary module</a><ul>
+<li><a class="reference internal" href="#makemore.vocabulary.CharVocabulary"><code class="docutils literal notranslate"><span class="pre">CharVocabulary</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">makemore</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">makemore package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/makemore.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="makemore-package">
+<h1>makemore package<a class="headerlink" href="#makemore-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="makemore.engine.html">makemore.engine package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="makemore.engine.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.engine.html#module-makemore.engine.train">makemore.engine.train module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="makemore.engine.html#makemore.engine.train.train"><code class="docutils literal notranslate"><span class="pre">train()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.engine.html#module-makemore.engine">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="makemore.models.html">makemore.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="makemore.models.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.models.html#module-makemore.models.bow">makemore.models.bow module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.bow.BoW"><code class="docutils literal notranslate"><span class="pre">BoW</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.bow.BoW.forward"><code class="docutils literal notranslate"><span class="pre">BoW.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.bow.BoW.get_block_size"><code class="docutils literal notranslate"><span class="pre">BoW.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.bow.BoWBlock"><code class="docutils literal notranslate"><span class="pre">BoWBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.bow.BoWBlock.forward"><code class="docutils literal notranslate"><span class="pre">BoWBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.bow.CasualBoW"><code class="docutils literal notranslate"><span class="pre">CasualBoW</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.bow.CasualBoW.forward"><code class="docutils literal notranslate"><span class="pre">CasualBoW.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.models.html#module-makemore.models.simple">makemore.models.simple module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.simple.Bigram"><code class="docutils literal notranslate"><span class="pre">Bigram</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.simple.Bigram.forward"><code class="docutils literal notranslate"><span class="pre">Bigram.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.simple.Bigram.get_block_size"><code class="docutils literal notranslate"><span class="pre">Bigram.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.simple.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.simple.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.simple.MLP.get_block_size"><code class="docutils literal notranslate"><span class="pre">MLP.get_block_size()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.models.html#module-makemore.models.transformer">makemore.models.transformer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.DecoderBlock"><code class="docutils literal notranslate"><span class="pre">DecoderBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.DecoderBlock.forward"><code class="docutils literal notranslate"><span class="pre">DecoderBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.FeedForward"><code class="docutils literal notranslate"><span class="pre">FeedForward</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.FeedForward.forward"><code class="docutils literal notranslate"><span class="pre">FeedForward.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.GPTLanguageModel"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.GPTLanguageModel.forward"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.GPTLanguageModel.get_block_size"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.MaskedMultiHeadAttention"><code class="docutils literal notranslate"><span class="pre">MaskedMultiHeadAttention</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.MaskedMultiHeadAttention.forward"><code class="docutils literal notranslate"><span class="pre">MaskedMultiHeadAttention.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.NewGELU"><code class="docutils literal notranslate"><span class="pre">NewGELU</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="makemore.models.html#makemore.models.transformer.NewGELU.forward"><code class="docutils literal notranslate"><span class="pre">NewGELU.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.models.html#module-makemore.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="makemore.utils.html">makemore.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="makemore.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.utils.html#module-makemore.utils.aux">makemore.utils.aux module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.EarlyStopping"><code class="docutils literal notranslate"><span class="pre">EarlyStopping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.load_from_txt"><code class="docutils literal notranslate"><span class="pre">load_from_txt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.load_general_checkpoint"><code class="docutils literal notranslate"><span class="pre">load_general_checkpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.print_samples"><code class="docutils literal notranslate"><span class="pre">print_samples()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.set_seed"><code class="docutils literal notranslate"><span class="pre">set_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="makemore.utils.html#makemore.utils.aux.write_checkpoint"><code class="docutils literal notranslate"><span class="pre">write_checkpoint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.utils.html#module-makemore.utils.constants">makemore.utils.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makemore.utils.html#module-makemore.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-makemore.dataset">
+<span id="makemore-dataset-module"></span><h2>makemore.dataset module<a class="headerlink" href="#module-makemore.dataset" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.dataset.CharDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.dataset.</span></span><span class="sig-name descname"><span class="pre">CharDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#makemore.vectorizer.CharTokenizer" title="makemore.vectorizer.CharTokenizer"><span class="pre">CharTokenizer</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.dataset.CharDataset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.dataset.CharDataset.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.dataset.CharDataset.contains" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.dataset.CharDataset.get_output_length">
+<span class="sig-name descname"><span class="pre">get_output_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#makemore.dataset.CharDataset.get_output_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-makemore.vectorizer">
+<span id="makemore-vectorizer-module"></span><h2>makemore.vectorizer module<a class="headerlink" href="#module-makemore.vectorizer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.vectorizer.CharTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.vectorizer.</span></span><span class="sig-name descname"><span class="pre">CharTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#makemore.vocabulary.CharVocabulary" title="makemore.vocabulary.CharVocabulary"><span class="pre">CharVocabulary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_word_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.vectorizer.CharTokenizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.vectorizer.CharTokenizer.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#makemore.vectorizer.CharTokenizer.decode" title="Link to this definition"></a></dt>
+<dd><p>Converts a list of indices to a human-readable format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.vectorizer.CharTokenizer.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#makemore.vectorizer.CharTokenizer.encode" title="Link to this definition"></a></dt>
+<dd><p>Vectorizes the input word into two 1-D tensors of integers.</p>
+<p>The first tensor, <cite>x</cite>, is the input, zero-padded tensor to the
+model. The second tensor, <cite>y</cite>, is the target tensor, padded with
+<cite>-1</cite> to mask the loss at inactive locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>word</strong> (<em>str</em>) – The input word.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The input and target tensors</dt><dd><p>to the model.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[torch.Tensor, torch.Tensor]</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If the input word is `dio` then:
+
+x = tensor([0,4,9,15,0,0,0,0,0,0,0,0,0,0,0,0])
+y = tensor([4,9,15,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-makemore.vocabulary">
+<span id="makemore-vocabulary-module"></span><h2>makemore.vocabulary module<a class="headerlink" href="#module-makemore.vocabulary" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.vocabulary.CharVocabulary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.vocabulary.</span></span><span class="sig-name descname"><span class="pre">CharVocabulary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.vocabulary.CharVocabulary" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple mapping of each character in the vocabulary
+to a corresponding integer, and vice versa.</p>
+</dd></dl>
+
+</section>
+<section id="module-makemore">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-makemore" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Konstantinos Kanaris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

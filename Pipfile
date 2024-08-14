@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+torch = "*"
+matplotlib = "*"
+mlflow = "*"
+colorlog = "*"
+tqdm = "*"
+
+[dev-packages]
+ipykernel = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+flake8 = "*"
+pytest-cov = "*"
+pre-commit = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.14"

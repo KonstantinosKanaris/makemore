@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>makemore.models package &mdash; makemore  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            makemore
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">makemore.models package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-makemore.models.bow">makemore.models.bow module</a><ul>
+<li><a class="reference internal" href="#makemore.models.bow.BoW"><code class="docutils literal notranslate"><span class="pre">BoW</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.bow.BoW.forward"><code class="docutils literal notranslate"><span class="pre">BoW.forward()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.models.bow.BoW.get_block_size"><code class="docutils literal notranslate"><span class="pre">BoW.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.bow.BoWBlock"><code class="docutils literal notranslate"><span class="pre">BoWBlock</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.bow.BoWBlock.forward"><code class="docutils literal notranslate"><span class="pre">BoWBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.bow.CasualBoW"><code class="docutils literal notranslate"><span class="pre">CasualBoW</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.bow.CasualBoW.forward"><code class="docutils literal notranslate"><span class="pre">CasualBoW.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore.models.simple">makemore.models.simple module</a><ul>
+<li><a class="reference internal" href="#makemore.models.simple.Bigram"><code class="docutils literal notranslate"><span class="pre">Bigram</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.simple.Bigram.forward"><code class="docutils literal notranslate"><span class="pre">Bigram.forward()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.models.simple.Bigram.get_block_size"><code class="docutils literal notranslate"><span class="pre">Bigram.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.simple.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.simple.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.models.simple.MLP.get_block_size"><code class="docutils literal notranslate"><span class="pre">MLP.get_block_size()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore.models.transformer">makemore.models.transformer module</a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.DecoderBlock"><code class="docutils literal notranslate"><span class="pre">DecoderBlock</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.DecoderBlock.forward"><code class="docutils literal notranslate"><span class="pre">DecoderBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.transformer.FeedForward"><code class="docutils literal notranslate"><span class="pre">FeedForward</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.FeedForward.forward"><code class="docutils literal notranslate"><span class="pre">FeedForward.forward()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.transformer.GPTLanguageModel"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.GPTLanguageModel.forward"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel.forward()</span></code></a></li>
+<li><a class="reference internal" href="#makemore.models.transformer.GPTLanguageModel.get_block_size"><code class="docutils literal notranslate"><span class="pre">GPTLanguageModel.get_block_size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.transformer.MaskedMultiHeadAttention"><code class="docutils literal notranslate"><span class="pre">MaskedMultiHeadAttention</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.MaskedMultiHeadAttention.forward"><code class="docutils literal notranslate"><span class="pre">MaskedMultiHeadAttention.forward()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#makemore.models.transformer.NewGELU"><code class="docutils literal notranslate"><span class="pre">NewGELU</span></code></a><ul>
+<li><a class="reference internal" href="#makemore.models.transformer.NewGELU.forward"><code class="docutils literal notranslate"><span class="pre">NewGELU.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-makemore.models">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">makemore</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">makemore.models package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/makemore.models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="makemore-models-package">
+<h1>makemore.models package<a class="headerlink" href="#makemore-models-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-makemore.models.bow">
+<span id="makemore-models-bow-module"></span><h2>makemore.models.bow module<a class="headerlink" href="#module-makemore.models.bow" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.bow.BoW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.bow.</span></span><span class="sig-name descname"><span class="pre">BoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocab_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.bow.BoW" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>A character-level bag of words model.</p>
+<p>Takes the previous <cite>:attr:block_size</cite> characters, encodes them
+and their position using lookup tables, and then uses the average
+of these encoded characters to predict the next one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vocab_size</strong> (<em>int</em>) – Size of the vocabulary.</p></li>
+<li><p><strong>block_size</strong> (<em>int</em>) – Number of characters to consider for predicting
+the next one.</p></li>
+<li><p><strong>emb_dim</strong> (<em>int</em>) – Size of each embedding vector.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – Size of the hidden layers.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: logits</dt><dd><ul class="simple">
+<li><p><strong>logits</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, V)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    V ={} &amp; \text{vocabulary size} \\
+\end{aligned}\end{split}\]</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.bow.BoW.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.bow.BoW.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.bow.BoW.get_block_size">
+<span class="sig-name descname"><span class="pre">get_block_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#makemore.models.bow.BoW.get_block_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.bow.BoWBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.bow.</span></span><span class="sig-name descname"><span class="pre">BoWBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.bow.BoWBlock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Collects the BoW features and passes them through an MLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_size</strong> (<em>int</em>) – Number of characters to consider for predicting
+the next one.</p></li>
+<li><p><strong>emb_dim</strong> (<em>int</em>) – Size of each embedding vector.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – Size of the hidden layers.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, C)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length} \\
+    C ={} &amp; \text{embedding dimension}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: out</dt><dd><ul class="simple">
+<li><p><strong>out</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, C)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.bow.BoWBlock.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.bow.BoWBlock.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.bow.CasualBoW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.bow.</span></span><span class="sig-name descname"><span class="pre">CasualBoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.bow.CasualBoW" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Casual bag of words.</p>
+<p>Averages the vectors of the preceding elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>block_size</strong> (<em>int</em>) – Number of characters to consider for predicting
+the next one.</p>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, C)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length} \\
+    C ={} &amp; \text{embedding dimension}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: out</dt><dd><ul class="simple">
+<li><p><strong>out</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, C)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.bow.CasualBoW.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.bow.CasualBoW.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-makemore.models.simple">
+<span id="makemore-models-simple-module"></span><h2>makemore.models.simple module<a class="headerlink" href="#module-makemore.models.simple" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.simple.Bigram">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.simple.</span></span><span class="sig-name descname"><span class="pre">Bigram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocab_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.simple.Bigram" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>A character-level bigram language model.</p>
+<p>A simple lookup table of logits for the next character
+given the previous character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vocab_size</strong> (<em>int</em>) – Size of the vocabulary.</p>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: logits</dt><dd><ul class="simple">
+<li><p><strong>logits</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, V)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    V ={} &amp; \text{vocabulary size} \\
+\end{aligned}\end{split}\]</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.simple.Bigram.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.simple.Bigram.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.simple.Bigram.get_block_size">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_block_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#makemore.models.simple.Bigram.get_block_size" title="Link to this definition"></a></dt>
+<dd><p>Returns the context length, which is the number of
+characters to consider for predicting the next one.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.simple.MLP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.simple.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocab_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.simple.MLP" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>A character-level neural probabilistic language model.</p>
+<p>Concatenates the character embeddings of the previous three
+characters and passes the result through an MLP.</p>
+<p>The architecture is based on the paper <a class="reference external" href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">A Neural Probabilistic
+Language Model</a>
+but it operates at the character level instead of the word level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vocab_size</strong> (<em>int</em>) – Size of the vocabulary.</p></li>
+<li><p><strong>block_size</strong> (<em>int</em>) – Number of characters to consider for predicting
+the next one.</p></li>
+<li><p><strong>emb_dim</strong> (<em>int</em>) – Size of each embedding vector.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – Size of the hidden layers.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: logits</dt><dd><ul class="simple">
+<li><p><strong>logits</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, V)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    V ={} &amp; \text{vocabulary size} \\
+\end{aligned}\end{split}\]</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.simple.MLP.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.simple.MLP.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.simple.MLP.get_block_size">
+<span class="sig-name descname"><span class="pre">get_block_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#makemore.models.simple.MLP.get_block_size" title="Link to this definition"></a></dt>
+<dd><p>Returns the context length, which is the number of
+characters to consider for predicting the next one.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-makemore.models.transformer">
+<span id="makemore-models-transformer-module"></span><h2>makemore.models.transformer module<a class="headerlink" href="#module-makemore.models.transformer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.transformer.DecoderBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.transformer.</span></span><span class="sig-name descname"><span class="pre">DecoderBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.DecoderBlock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Stacks a masked multihead attention layer and a point-wise feed
+forward network together.</p>
+<p>Incorporates normalization layers and residual connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_size</strong> (<em>int</em>) – Maximum length of the sequence.</p></li>
+<li><p><strong>d_model</strong> (<em>int</em>) – Dimensionality of the vectors used throughout the
+transformer.</p></li>
+<li><p><strong>n_head</strong> (<em>int</em>) – Number of self-attention heads.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">Linear</span></code> and <code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code> layers
+will learn an additive bias. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Dropout probability to be applied throughout
+the transformer layers (default=0.2).</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, D)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length} \\
+    D ={} &amp; \text{model dimension}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: out</dt><dd><ul class="simple">
+<li><p><strong>out</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, D)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.DecoderBlock.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.transformer.DecoderBlock.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.transformer.FeedForward">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.transformer.</span></span><span class="sig-name descname"><span class="pre">FeedForward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.FeedForward" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>A point-wise feed forward neural network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d_model</strong> (<em>int</em>) – Dimensionality of the vectors used throughout the
+transformer.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">Linear</span></code> layers will learn an
+additive bias. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Dropout probability to be applied at the
+end of the feed-forward network (default=0.2).</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, D)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length} \\
+    D ={} &amp; \text{model dimension}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: out</dt><dd><ul class="simple">
+<li><p><strong>out</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, D)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.FeedForward.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.transformer.FeedForward.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.transformer.GPTLanguageModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.transformer.</span></span><span class="sig-name descname"><span class="pre">GPTLanguageModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocab_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.GPTLanguageModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>A transformer decoder as an autoregressive language model.</p>
+<p>The architecture is based on the paper:
+<a class="reference external" href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vocab_size</strong> (<em>int</em>) – Size of the vocabulary.</p></li>
+<li><p><strong>block_size</strong> (<em>int</em>) – Number of characters to consider for predicting
+the next one.</p></li>
+<li><p><strong>d_model</strong> (<em>int</em>) – Dimensionality of the vectors used throughout the
+transformer.</p></li>
+<li><p><strong>n_head</strong> (<em>int</em>) – Number of self-attention heads.</p></li>
+<li><p><strong>n_layer</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of sub-decoder layers (default=1).</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">Linear</span></code> and <code class="docutils literal notranslate"><span class="pre">LayerNorm</span></code> layers
+will learn an additive bias. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Dropout probability to be applied throughout
+the transformer layers (default=0.2).</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: logits</dt><dd><ul class="simple">
+<li><p><strong>logits</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, V)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    V ={} &amp; \text{vocabulary size} \\
+\end{aligned}\end{split}\]</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.GPTLanguageModel.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.transformer.GPTLanguageModel.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.GPTLanguageModel.get_block_size">
+<span class="sig-name descname"><span class="pre">get_block_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#makemore.models.transformer.GPTLanguageModel.get_block_size" title="Link to this definition"></a></dt>
+<dd><p>Returns the context length, which is the number of
+characters considered for predicting the next one.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.transformer.MaskedMultiHeadAttention">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.transformer.</span></span><span class="sig-name descname"><span class="pre">MaskedMultiHeadAttention</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.MaskedMultiHeadAttention" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Allows the model to jointly attend to information from different
+representations only at preceding positions in an input sequence.</p>
+<p>The method is described in the paper:
+<a class="reference external" href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</p>
+<p>Multi-Head Attention is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\text{MultiHead}(Q, K, V) = \text{Concat}(head_1,\dots,head_h)W^O\]</div>
+<p>where <span class="math notranslate nohighlight">\(head_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_size</strong> (<em>int</em>) – Maximum length of the sequence.</p></li>
+<li><p><strong>d_model</strong> (<em>int</em>) – Dimensionality of the vectors used throughout the
+transformer.</p></li>
+<li><p><strong>n_head</strong> (<em>int</em>) – Number of self-attention heads.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, adds bias to the input / output
+projection layers. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em><em>, </em><em>optional</em>) – Dropout probability to be applied on the
+attention weights and also on the output projection layer
+(default=0.2).</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Inputs: x</dt><dd><ul class="simple">
+<li><p><strong>x</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, D)\)</span></p></li>
+</ul>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    B ={} &amp; \text{batch size} \\
+    T ={} &amp; \text{max sequence length} \\
+    D ={} &amp; \text{model dimension}
+\end{aligned}\end{split}\]</div>
+</dd>
+<dt>Outputs: out</dt><dd><ul class="simple">
+<li><p><strong>out</strong>: tensor of shape <span class="math notranslate nohighlight">\((B, T, T)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.MaskedMultiHeadAttention.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#makemore.models.transformer.MaskedMultiHeadAttention.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="makemore.models.transformer.NewGELU">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makemore.models.transformer.</span></span><span class="sig-name descname"><span class="pre">NewGELU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.NewGELU" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Implementation of the GELU activation function (identical to OpenAI GPT).</p>
+<p>The method is described in the paper:
+<a class="reference external" href="https://arxiv.org/abs/1606.08415">Gaussian Error Linear Units (GELUs)</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="makemore.models.transformer.NewGELU.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#makemore.models.transformer.NewGELU.forward" title="Link to this definition"></a></dt>
+<dd><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-makemore.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-makemore.models" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Konstantinos Kanaris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

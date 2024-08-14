@@ -1,0 +1,6 @@
+.venv
+.idea
+.mypy_cache
+notebooks
+mlruns
+out
