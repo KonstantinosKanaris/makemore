@@ -3,18 +3,18 @@ from typing import List, Tuple
 import torch
 from torch.utils.data import Dataset
 
-from makemore.vectorizer import CharTokenizer
+from makemore.tokenizer import CharTokenizer
 
 
 class CharDataset(Dataset):
     def __init__(
         self,
         words: List[str],
-        vectorizer: CharTokenizer,
+        tokenizer: CharTokenizer,
     ) -> None:
         self.words = words
-        self.vectorizer = vectorizer
-        self.max_word_length = vectorizer.max_word_length
+        self.tokenizer = tokenizer
+        self.max_word_length = tokenizer.max_word_length
 
     def __len__(self) -> int:
         return len(self.words)
@@ -28,5 +28,5 @@ class CharDataset(Dataset):
 
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor]:
         word = self.words[idx]
-        x, y = self.vectorizer.encode(word=word)
+        x, y = self.tokenizer.encode(word=word)
         return x, y

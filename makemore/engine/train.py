@@ -7,6 +7,7 @@ import torch.utils.data
 from tqdm import tqdm
 
 from makemore import logger
+from makemore.tokenizer import CharTokenizer
 from makemore.utils.aux import (
     EarlyStopping,
     print_samples,
@@ -14,7 +15,6 @@ from makemore.utils.aux import (
     write_checkpoint,
 )
 from makemore.utils.constants import SEED
-from makemore.vectorizer import CharTokenizer
 
 set_seed(seed=SEED)
 
@@ -25,7 +25,7 @@ def train(
     lr_scheduler: torch.optim.lr_scheduler.ReduceLROnPlateau,
     train_dataloader: torch.utils.data.DataLoader,
     val_dataloader: torch.utils.data.DataLoader,
-    vectorizer: CharTokenizer,
+    tokenizer: CharTokenizer,
     num_epochs: int,
     checkpoint_path: str,
     tqdm_bar: tqdm,
@@ -111,7 +111,7 @@ def train(
             print_samples(
                 model=model,
                 num=20,
-                vectorizer=vectorizer,
+                tokenizer=tokenizer,
                 device=device,
             )
 

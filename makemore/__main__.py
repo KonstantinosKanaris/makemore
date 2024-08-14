@@ -23,6 +23,7 @@ from makemore.engine.train import train
 from makemore.models.bow import BoW
 from makemore.models.simple import MLP, Bigram
 from makemore.models.transformer import GPTLanguageModel
+from makemore.tokenizer import CharTokenizer
 from makemore.utils.aux import (
     EarlyStopping,
     load_from_txt,
@@ -31,7 +32,6 @@ from makemore.utils.aux import (
     set_seed,
 )
 from makemore.utils.constants import SEED
-from makemore.vectorizer import CharTokenizer
 from makemore.vocabulary import CharVocabulary
 
 
@@ -216,13 +216,13 @@ if __name__ == "__main__":
     # split the input data into a training and test set
     train_words, val_words = split_data(words=data)
 
-    # initialize vectorizer
+    # initialize tokenizer
     max_word_length = max(len(word) for word in data)
-    vectorizer = CharTokenizer(vocab=vocab, max_word_length=max_word_length)
+    tokenizer = CharTokenizer(vocab=vocab, max_word_length=max_word_length)
 
     # initialize datasets
-    train_dataset = CharDataset(words=train_words, vectorizer=vectorizer)
-    val_dataset = CharDataset(words=val_words, vectorizer=vectorizer)
+    train_dataset = CharDataset(words=train_words, tokenizer=tokenizer)
+    val_dataset = CharDataset(words=val_words, tokenizer=tokenizer)
     block_size = train_dataset.get_output_length()
     logger.info(f"{vocab_size=}, {block_size=}")
 
@@ -327,7 +327,7 @@ if __name__ == "__main__":
             filepath=checkpoint_path,
         )
         model = checkpoint["model"].to(device)
-        print_samples(model=model, vectorizer=vectorizer, device=device, num=30)
+        print_samples(model=model, tokenizer=tokenizer, device=device, num=30)
         sys.exit()
 
     # initialize early stopping
@@ -368,7 +368,7 @@ if __name__ == "__main__":
             num_epochs=args.num_epochs,
             start_epoch=start_epoch,
             checkpoint_path=checkpoint_path,
-            vectorizer=vectorizer,
+            tokenizer=tokenizer,
             early_stopper=early_stopper,
             tqdm_bar=tqdm_bar,
         )

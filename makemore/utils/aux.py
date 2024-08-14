@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 
 from makemore import logger
-from makemore.vectorizer import CharTokenizer
+from makemore.tokenizer import CharTokenizer
 
 
 @torch.inference_mode()
@@ -58,13 +58,13 @@ def generate(
 
 def print_samples(
     model: torch.nn.Module,
-    vectorizer: CharTokenizer,
+    tokenizer: CharTokenizer,
     device: str = "cpu",
     num: int = 10,
 ) -> None:
     """Samples from the model and pretty prints the decoded samples."""
     X_init = torch.zeros(num, 1, dtype=torch.long).to(device)
-    steps = vectorizer.max_word_length
+    steps = tokenizer.max_word_length
     X_samp = generate(model, X_init, steps).to(device)
     word_samples = []
     for i in range(X_samp.size(0)):
@@ -75,7 +75,7 @@ def print_samples(
         # sequence at that point
         crop_index = row.index(0) if 0 in row else len(row)
         row = row[:crop_index]
-        word_sample = vectorizer.decode(row)
+        word_sample = tokenizer.decode(row)
         word_samples.append(word_sample)
     print("-" * 80)
     word_samples = [word for word in word_samples if word]
